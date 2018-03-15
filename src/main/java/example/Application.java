@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @SpringBootApplication
 public class Application {
@@ -29,5 +30,11 @@ public class Application {
         servletRegistrationBean.addInitParameter("targetUri", targetPath);
         servletRegistrationBean.addInitParameter(ProxyServlet.P_LOG, logsEnabled);
         return servletRegistrationBean;
+    }
+    @Bean
+    public FilterRegistrationBean registration(HiddenHttpMethodFilter filter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean(filter);
+        registration.setEnabled(false);
+        return registration;
     }
 }
