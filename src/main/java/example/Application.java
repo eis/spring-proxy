@@ -4,7 +4,7 @@ import org.mitre.dsmiley.httpproxy.ProxyServlet;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
@@ -14,6 +14,11 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        return new FilterRegistrationBean(new DoogiesRequestLoggerFilter());
+    }
     @Bean
     public ServletRegistrationBean servletRegistrationBean(
             @Value("${servlet.path:/}") String servletPath,
@@ -25,5 +30,4 @@ public class Application {
         servletRegistrationBean.addInitParameter(ProxyServlet.P_LOG, logsEnabled);
         return servletRegistrationBean;
     }
-
 }
