@@ -1,0 +1,1 @@
+mvn spring-boot:run -Drun.arguments="--logs.enabled=true,--logging.level.org.apache.http.wire=DEBUG"
