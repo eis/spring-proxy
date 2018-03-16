@@ -95,10 +95,8 @@ public class HTTPTrafficLoggerFilter extends OncePerRequestFilter {
     private static String headersAsString(Supplier<List<String>> headerNameSupplier,
                                           Function<String, List<String>> headerValueSupplier) {
         StringBuilder response = new StringBuilder();
-        List<String> headers = headerNameSupplier.get();
-        for (String headerName : headers) {
-            List<String> headerValues = headerValueSupplier.apply(headerName);
-            for (String headerValue: headerValues) {
+        for (String headerName : headerNameSupplier.get()) {
+            for (String headerValue: headerValueSupplier.apply(headerName)) {
                 response.append(headerName);
                 response.append(": ");
                 response.append(headerValue);
