@@ -84,7 +84,7 @@ public class HTTPTrafficLoggerFilter extends OncePerRequestFilter {
 
 
     private static String headersAsString(HttpServletRequestWrapper wrappedRequest) {
-        return headersAsString(() ->  Collections.list(wrappedRequest.getHeaderNames()),
+        return headersAsString(() -> Collections.list(wrappedRequest.getHeaderNames()),
                 (headerName) -> Collections.list(wrappedRequest.getHeaders(headerName)));
     }
     private static String headersAsString(HttpServletResponseWrapper wrappedRequest) {

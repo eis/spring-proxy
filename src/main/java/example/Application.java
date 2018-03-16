@@ -35,7 +35,7 @@ public class Application {
     // this is needed for proxy filter to work properly
     // https://github.com/mitre/HTTP-Proxy-Servlet/issues/83
     @Bean
-    public FilterRegistrationBean registration(HiddenHttpMethodFilter filter) {
+    public FilterRegistrationBean filterRegistrationBean2(HiddenHttpMethodFilter filter) {
         FilterRegistrationBean registration = new FilterRegistrationBean(filter);
         registration.setEnabled(false);
         return registration;
