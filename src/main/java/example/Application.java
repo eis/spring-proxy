@@ -31,6 +31,9 @@ public class Application {
         servletRegistrationBean.addInitParameter(ProxyServlet.P_LOG, logsEnabled);
         return servletRegistrationBean;
     }
+
+    // this is needed for proxy filter to work properly
+    // https://github.com/mitre/HTTP-Proxy-Servlet/issues/83
     @Bean
     public FilterRegistrationBean registration(HiddenHttpMethodFilter filter) {
         FilterRegistrationBean registration = new FilterRegistrationBean(filter);
