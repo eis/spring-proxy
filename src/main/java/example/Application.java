@@ -18,7 +18,7 @@ public class Application {
 
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
-        return new FilterRegistrationBean(new DoogiesRequestLoggerFilter());
+        return new FilterRegistrationBean(new HTTPTrafficLoggerFilter());
     }
     @Bean
     public ServletRegistrationBean servletRegistrationBean(
