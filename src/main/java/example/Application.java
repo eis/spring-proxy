@@ -15,11 +15,11 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         return new FilterRegistrationBean(new HTTPTrafficLoggerFilter());
     }
+
     @Bean
     public ServletRegistrationBean servletRegistrationBean(
             @Value("${servlet.path:/}") String servletPath,
