@@ -11,7 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
