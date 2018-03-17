@@ -40,14 +40,15 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mitre.dsmiley.httpproxy</groupId>
             <artifactId>smiley-http-proxy-servlet</artifactId>
             <version>1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -55,6 +56,26 @@
             <version>3.0.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- below used by rest-assured, but will be removed from jdk -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.2.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.11</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -71,6 +92,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <!-- java 9 compliant version -->
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

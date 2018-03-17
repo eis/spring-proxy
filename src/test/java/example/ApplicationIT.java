@@ -33,7 +33,9 @@ public class ApplicationIT {
     public void setUp() {
         RestAssured.port = port;
     }
-    @Test public void foo() {
+
+    @Test
+    public void testRequestLogging() {
         given()
             .body("foo")
         .when()
